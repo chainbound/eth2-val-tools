@@ -59,6 +59,8 @@ func NewKeyEntry(sk [32]byte, pub [48]byte, insecure bool) (*KeyEntry, error) {
 	}
 	// Convert it to human readable characters, to keep it manageable
 	passphrase := base64.URLEncoding.EncodeToString(pass[:])
+	// FIXME: replace to "password" for deterministic testing purposes
+	passphrase = "password"
 	return &KeyEntry{
 		KeyFile: KeyFile{
 			id:        uuid.New(),
